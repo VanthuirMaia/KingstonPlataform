@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Início - Meu Portfólio{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h1 class="mt-5">Bem-vindo ao meu Portfólio!</h1>
+    <p class="lead">Aqui você encontrará meus projetos e trabalhos.</p>
+    <a href="{{ url_for('projetos') }}" class="btn btn-primary">Ver Projetos</a>
+</div>
+{% endblock %}

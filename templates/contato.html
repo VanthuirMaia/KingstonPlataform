@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Contato{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h2 class="text-center">Entre em Contato</h2>
+        <form class="mt-4">
+            <div class="mb-3">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="nome" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="mensagem" class="form-label">Mensagem</label>
+                <textarea class="form-control" id="mensagem" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">Enviar</button>
+        </form>
+    </div>
+{% endblock %}
