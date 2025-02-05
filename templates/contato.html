@@ -5,20 +5,63 @@
 {% block content %}
     <div class="container">
         <h2 class="text-center">Entre em Contato</h2>
-        <form class="mt-4">
+        
+        <!-- Exibir a mensagem de sucesso -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                        <strong>{{ message }}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="{{ url_for('contato') }}">
+            {{ form.hidden_tag() }}
+
             <div class="mb-3">
                 <label for="nome" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="nome" required>
+                {{ form.nome(class="form-control", placeholder="Digite seu nome") }}
+                {% for error in form.nome.errors %}
+                    <div class="alert alert-danger mt-2">{{ error }}</div>
+                {% endfor %}
             </div>
+
             <div class="mb-3">
                 <label for="email" class="form-label">E-mail</label>
-                <input type="email" class="form-control" id="email" required>
+                {{ form.email(class="form-control", placeholder="Digite seu email") }}
+                {% for error in form.email.errors %}
+                    <div class="alert alert-danger mt-2">{{ error }}</div>
+                {% endfor %}
             </div>
+
             <div class="mb-3">
                 <label for="mensagem" class="form-label">Mensagem</label>
-                <textarea class="form-control" id="mensagem" rows="4" required></textarea>
+                {{ form.mensagem(class="form-control", rows=4, placeholder="Escreva sua mensagem") }}
+                {% for error in form.mensagem.errors %}
+                    <div class="alert alert-danger mt-2">{{ error }}</div>
+                {% endfor %}
             </div>
-            <button type="submit" class="btn btn-success">Enviar</button>
+
+            <button type="submit" class="btn btn-success">{{ form.enviar.label }}</button>
         </form>
+
+        <!-- Outras formas de contato -->
+        <div class="text-center mt-5">
+            <h4>Outras formas de contato</h4>
+
+            <p><i class="fas fa-envelope"></i> Email: <a href="mailto:vanmaiasf@gmail.com" class="no-underline">vanmaiasf@gmail.com</a></p>
+            <p><i class="fas fa-envelope"></i> Email: <a href="mailto:vanthuir.dev@gmail.com" class="no-underline">vanthuir.dev@gmail.com</a></p>
+            <p><i class="fas fa-phone"></i> Telefone: <a href="tel:+5587996075897" class="no-underline">+55 87 99607-5897</a></p>
+            <p><i class="fas fa-phone"></i> Telefone: <a href="tel:+5587981531743" class="no-underline">+55 87 98153-1743</a></p>
+
+            <!-- Botão WhatsApp -->
+            <a href="https://wa.me/5587996075897?text=Olá!%20Gostaria%20de%20mais%20informações."
+               class="btn btn-success mt-2" target="_blank">
+                <i class="fab fa-whatsapp"></i> Fale no WhatsApp
+            </a>
+        </div>
     </div>
 {% endblock %}

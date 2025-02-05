@@ -1,0 +1,10 @@
+/* Remover sublinhado dos links de email e telefone */
+.no-underline {
+    text-decoration: none;
+    color: inherit;
+}
+
+.no-underline:hover {
+    text-decoration: none;
+    color: #198754; /* Cor verde do Bootstrap para destacar no hover */
+}
