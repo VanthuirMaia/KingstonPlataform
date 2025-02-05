@@ -5,6 +5,7 @@ from wtforms.validators import DataRequired, Email
 from flask_mail import Mail, Message
 
 
+
 # Configurações
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'palm8X9394'

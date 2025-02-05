@@ -8,3 +8,49 @@
     text-decoration: none;
     color: #198754; /* Cor verde do Bootstrap para destacar no hover */
 }
+
+.card {
+    position: relative;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 250px; /* Ajuste a altura do card conforme necessário */
+    color: white;
+}
+
+.card-body {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.5); /* Translucidez para dar destaque ao texto */
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.card .btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.card .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Para garantir que os cards fiquem responsivos */
+@media (max-width: 768px) {
+    .card {
+        height: 220px; /* Ajuste em telas menores */
+    }
+}
