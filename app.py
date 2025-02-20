@@ -26,11 +26,6 @@ mail = Mail(app)
 def home():
     return render_template('index.html')
 
-# Rota de Projetos
-@app.route('/projetos')
-def projetos():
-    return render_template('projetos.html')
-
 # Rota de Contato
 @app.route('/contato', methods=['GET', 'POST'])
 def contato():
